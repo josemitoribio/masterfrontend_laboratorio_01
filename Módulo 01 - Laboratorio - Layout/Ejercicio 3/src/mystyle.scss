@@ -1,0 +1,74 @@
+@use "base" as *;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100vh;
+    
+    font : {
+        family: Arial, sans-serif;
+        size: 15px;
+    }
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    & h1 {
+        margin-left: 5px;
+    }
+
+    .nav {
+    background-color: $primary-color;
+
+    .list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    margin:0;
+    padding: 0;
+
+    @media (width < $breakpoint-mobile) {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+    .list-item{
+        list-style-type: none;
+        height: 100%;
+        padding: 15px;
+
+        @media (width < $breakpoint-mobile) {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+          }
+
+        & a {
+            text-decoration: none;
+            color: $text-color;
+        } 
+
+        &:hover {
+            background-color: $hover-color;
+            cursor: pointer;
+          }
+
+    }
+
+    
+    }
+
+
+    }
+}
+

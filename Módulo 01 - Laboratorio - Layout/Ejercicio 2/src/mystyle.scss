@@ -1,0 +1,56 @@
+@use "themeRed" as *;
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+
+    & .container {
+        box-sizing: border-box;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        .box {
+            display: flex;
+            justify-content: center;
+            font-size: 12px;
+            height: 100px;
+            width: 100px;
+            padding: 12px;
+            border: 2px solid black;
+            border-radius: $border-radius;
+        }
+    }
+}
+
+.base {
+    background-color: $base_color;
+}
+
+.important {
+    background-color: $important_color;
+}
+
+.warning {
+    background-color: $warning_color;
+}
+
+.principal-font{
+    font-family:$principal-font;
+} 
+
+.secondary-font{
+    font-family: $secondary-font;
+}
+
+.shadow{
+    box-shadow: $box-shadow;
+}
+
+
+

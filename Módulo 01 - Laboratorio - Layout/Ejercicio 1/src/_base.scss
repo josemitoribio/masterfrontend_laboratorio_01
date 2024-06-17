@@ -1,0 +1,69 @@
+@mixin myDisplay {
+    display: flex;
+    gap: 8px;
+}
+
+@mixin myBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    padding: 12px;
+    border-radius: 16px;
+}
+
+//Base box background color
+$red-base-box-color: rgb(228, 3, 3);
+$orange-base-box-color: rgb(255, 140, 0);
+$yellow-base-box-color: rgb(255, 237, 0);
+$green-base-box-color: rgb(0, 128, 38);
+$indigo-base-box-color: rgb(36, 64, 142);
+$violet-base-box-color: rgb(115, 41, 130);
+
+@mixin define-base-color($base-color) {
+    .base-color {
+      background-color: $base-color;
+      color: white;
+      font-weight: bold;
+      padding: 12px 20px;
+    }
+  }
+  
+@mixin darken-and-lighten-color($box-color, $text-color) {
+    $amount-bg: 6%;
+    $amount-tx: 12%;
+  
+    @for $i from 1 through 4 {
+      .darken-#{$i} {
+        background-color: darken($box-color, $i * $amount-bg);
+            .color-box-text {
+                color: lighten($text-color, $i * $amount-tx);
+            }
+        }
+
+      .lighten-#{$i} {
+        background-color: lighten($box-color, $i * $amount-bg);
+            .color-box-text {
+                color: darken($text-color, $i * $amount-tx);
+            }
+        }
+    }
+}
+
+@function define-box-base-colors($item) {
+    @if $item == 1 {
+        @return $red-base-box-color;
+    } @else if $item == 2 {
+        @return $orange-base-box-color;
+    } @else if $item == 3 {
+        @return $yellow-base-box-color;
+    } @else if $item == 4 {
+        @return $green-base-box-color;
+    } @else if $item == 5 {
+        @return $indigo-base-box-color;
+    } @else if $item == 6 {
+        @return $violet-base-box-color;
+  }
+};
+
+

@@ -1,0 +1,93 @@
+@use "base" as *;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    gap:15px;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: $background-color;
+}
+
+.card {
+    width: 350px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+    "img img img"
+    "title title ."
+    "text text text"
+    ". last-reservation last-reservation"
+    "button button button";
+    background-color: $card-color;
+    box-shadow: $card-shadow;
+
+    .title, .text, 
+    .last-reservation, .book-button{
+    @include margin-elements();
+    }
+
+    .room-image {
+        height: 200px;
+        width: 100%;
+        grid-area: img;
+        transition: transform 0.5s ease;
+        transform-origin: center;
+        overflow: hidden;
+
+
+       &:hover {
+            transform: scale(0.9);
+        }
+    }
+
+    .title{
+        padding-top: 15px;
+        font-size: 20px;
+        grid-area: title;
+    }
+
+    .text{
+        grid-area: text;
+    }
+
+    .last-reservation {
+        grid-area: last-reservation;
+        font-size: 12px;
+        justify-self: end;
+
+        & .date{
+            color: $date-color;
+            
+            &:hover {
+                color: $hover-color;
+                cursor:pointer;
+              }
+        }
+    }
+
+    .book-button{
+        grid-area: button;
+        background-color: $button-color;
+        color: white;
+        padding: 20px;
+        font-size: 15px;
+        border: none;
+        
+        &:hover {
+            background-color: $hover-color;
+            cursor:pointer;
+          }
+    }
+    
+}
+

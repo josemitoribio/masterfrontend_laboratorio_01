@@ -1,0 +1,14 @@
+// Colors
+$background-color: rgb(226, 226, 226);
+$card-color: rgb(255, 255, 255);
+$button-color:rgb(41, 148, 53);
+$date-color:rgb(131, 193, 131);
+$hover-color: rgb(23, 84, 30);
+
+//Margin
+@mixin margin-elements ($margin:16px 16px) {
+    margin:0 16px 16px;
+}
+
+//Shadow
+$card-shadow: 5px 3px 3px 0px rgba(98, 98, 98, 0.75);
