@@ -1,0 +1,41 @@
+// Color
+$bg-color:  rgb(211, 211, 211);
+$primary-color: rgb(217, 217, 0);
+$secondary-color: rgb(87, 87, 0);
+$third-color:rgb(249, 251, 227);
+
+//Breakpoints media queries
+$breakpoint-mobile: 768px;
+
+//Mixins
+  @mixin item-card-styles {
+        width: 250px;
+        height: 160px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        border: 1px solid black;
+        border-radius: 8px;
+        cursor: pointer;
+  }
+
+  @mixin item-card-styles-media {
+  padding: 14px;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 14px;
+  border: none;
+  border-radius: 0;
+  }
+
+  @mixin img-card-styles {
+    border-radius: 50%;
+}
+
+  @mixin member-name-styles {
+      text-align: center;
+    }

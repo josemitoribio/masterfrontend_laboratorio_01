@@ -1,0 +1,149 @@
+@use "base" as *;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    height: 100vh;
+    font-family: sans-serif;
+    color:$secondary-color;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+    "header header header header"
+    "page page page page"
+    "footer footer footer footer";
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .toolbar {
+        display:flex;
+        justify-content: space-between;
+        padding: 14px;
+
+        @media (width < $breakpoint-mobile){
+            display: none;
+        }
+    }
+    .page-title {
+        background-color: $primary-color;
+        color:$third-color;
+        padding: 14px;
+        font-size: 20px;;
+    }
+
+}
+
+.page-container {
+    grid-area:page;
+    display: flex;
+    width: 100%;
+
+    nav {
+    width: 150px;
+    background-color: $secondary-color ;
+
+        .menu-container{
+            position: sticky;
+            top:0;
+
+            .menu-title{
+                color: $third-color;
+                background-color: $secondary-color;
+                text-align: center;
+                font-weight: bold;
+                padding: 8px;
+                text-transform: uppercase;
+
+                @media (width < $breakpoint-mobile){
+                    display: none;
+                }
+            }
+
+            ul{
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                
+                li{
+                    color: $secondary-color;
+                    background-color: $third-color;
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    padding: 8px;
+                    border: 1px solid $secondary-color;
+                    cursor: pointer;
+                }
+                // Media queries li
+                @media (width < $breakpoint-mobile){
+                    display: flex;
+                    justify-content: center;
+                    gap: 15px;
+                    padding: 6px;
+                }
+            }
+            
+        }
+        // Media queries nav
+        @media (width < $breakpoint-mobile){
+        width: 100%;
+        position: sticky;
+        top: 0;
+        }
+        
+    }
+
+    main {
+        display:flex;
+        flex:1;
+        height: 100%;
+        background-color: $bg-color;
+
+        .list {
+            flex:1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: flex-start;
+            gap: 14px;
+            padding: 14px;
+
+            & .card {
+                @include item-card-styles;
+
+                @media (width < $breakpoint-mobile){
+                    @include item-card-styles-media;
+                }
+
+                & img {
+                    @include img-card-styles;
+                }
+                & .member-name{
+                    @include member-name-styles;
+                }
+            }
+        }
+    }
+     // Media queries page-container
+    @media (width < $breakpoint-mobile){
+        flex-direction: column;
+    }
+}
+
+footer {
+    height: 40px;
+    padding: 14px;
+    grid-area: footer;
+    background-color: $third-color;
+}
