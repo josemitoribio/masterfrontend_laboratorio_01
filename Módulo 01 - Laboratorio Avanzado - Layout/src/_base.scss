@@ -1,0 +1,68 @@
+// Color
+
+$bg-color: #141414;
+$text-primary-color:white;
+
+//Breakpoints media queries
+
+$breakpoint-tablet: 1280px;
+$breakpoint-mobile: 720px;
+
+
+//Font
+@font-face {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 400;
+    src: url("./assets/fonts/Jost-Regular.ttf") format("truetype");
+  }
+
+@mixin button-style {
+    width: 70px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  
+    &:hover {
+      background-color: rgb(94, 13, 13);
+      font-weight: bolder;
+      cursor: pointer;
+      transition: all;
+      transition-duration: 0.5s;
+      
+    }
+  }
+
+  @mixin hide-top-items($from, $to) {
+    @for $i from $from through $to {
+      &:nth-last-child(#{$i}) {
+        display: none;
+      }
+    }
+  }
+
+  @mixin section-styles {
+    display:flex;
+    flex-wrap: wrap;
+    padding: 14px;
+    gap: 5px;
+  }
+
+  @mixin item-styles {
+    flex: 1;
+    min-width: 250px;
+  
+    img {
+      width: 100%;
+    }
+  
+    :hover {
+      cursor: pointer;
+      transition: all;
+      transition-duration: 0.5s;
+      transform: scale(1.1);
+    }
+}
+

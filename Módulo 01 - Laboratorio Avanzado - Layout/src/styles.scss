@@ -1,0 +1,129 @@
+@use "base" as *;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+    background-color: $bg-color;
+    font-family: Jost, sans-serif;
+    color:$text-primary-color;
+}
+
+header {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px;
+
+    @media (width < $breakpoint-mobile){
+            justify-content: space-around;
+    }
+
+    .header-logo{
+        display:flex;
+        align-items: center;
+        gap: 10px;
+
+        img{
+            width:100px;
+            height: 100px;
+
+            @media (width < $breakpoint-mobile){
+                width:120px;
+                height: 120px;
+
+            }
+        }
+
+        .platform-title {
+            @media (width < $breakpoint-tablet){
+                display:none;
+            }
+        }
+    }
+
+    .header-buttons{
+        display: flex;
+        gap:15px;
+
+        & div{
+            @include button-style;
+        }
+        
+    }
+}
+
+.section-title {
+    padding-top: 32px;
+    padding-left: 18px;
+    font-size: 20px;
+  
+    #top-text::before {
+      content: "5";
+      font-weight: bold;
+      font-size: 24px;
+
+      @media (width < $breakpoint-tablet) {
+        content: "3";
+        font-size: 30px;
+    }
+
+    }
+
+}
+
+.top{
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    flex-wrap: wrap-reverse;
+    padding: 18px;
+
+    .top-item{
+        flex:1;
+
+        img {
+            min-width: 225px;
+            width: 100%;
+        }
+
+        &:hover {
+            cursor: pointer;
+            transition: all;
+            transition-duration: 0.5s;
+            transform: scale(1.1);
+          }
+
+        @media (width < $breakpoint-tablet) {
+        @include hide-top-items(4, 5);
+    }   
+    }
+
+    @media (width < $breakpoint-mobile) {
+        flex-direction: column-reverse;
+        align-items: center;
+        .top-item {
+          width: 70%;
+        }
+      }
+
+}
+
+.first, .second {
+    @include section-styles;
+    & .item{
+        @include item-styles;
+    }
+}
+
+footer{
+    padding:18px;
+    text-align: right;
+    font-size: small;
+    color: $text-primary-color;
+}
