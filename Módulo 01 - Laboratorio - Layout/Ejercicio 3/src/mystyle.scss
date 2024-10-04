@@ -44,7 +44,6 @@ body {
 
     .list-item{
         list-style-type: none;
-        height: 100%;
         padding: 15px;
 
         @media (width < $breakpoint-mobile) {
