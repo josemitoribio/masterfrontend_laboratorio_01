@@ -15,6 +15,10 @@ body{
 }
 
 header {
+    position: sticky;
+    top: 0;
+    z-index:1000;
+    background-color: $bg-color;
     display:flex;
     align-items: center;
     justify-content: space-between;
@@ -68,9 +72,14 @@ header {
       font-weight: bold;
       font-size: 24px;
 
-      @media (width < $breakpoint-tablet) {
+      @media (max-width: $breakpoint-tablet) {
+        content: "4";
+        font-size: 24px;
+    }
+
+    @media (max-width: $breakpoint-mobile) {
         content: "3";
-        font-size: 30px;
+        font-size: 24px;
     }
 
     }
@@ -80,12 +89,12 @@ header {
 .top{
     display:flex;
     flex-direction: row-reverse;
+    flex-wrap: wrap;
     justify-content: space-around;
-    flex-wrap: wrap-reverse;
     padding: 18px;
 
     .top-item{
-        flex:1;
+        overflow: hidden;
 
         img {
             min-width: 225px;
@@ -99,25 +108,52 @@ header {
             transform: scale(1.1);
           }
 
-        @media (width < $breakpoint-tablet) {
+        @media (max-width: $breakpoint-tablet) {
+        @include hide-top-items(5, 5);
+        flex:1;
+        }   
+
+        @media (max-width: $breakpoint-topThree) {
+            &:nth-last-child(1) {
+                flex: 0 0 auto; 
+                margin: 5px;
+            }
+            &:nth-last-child(n+2) {
+                flex: 0 0 calc(33.33% - 10px); 
+                margin: 5px;
+            }
+        }
+
+        @media (max-width: $breakpoint-topTwo){
+        width: calc(50% - 10px);
+        margin: 5px; 
+            &:nth-last-child(1), 
+            &:nth-last-child(n+2) { 
+            flex: none; 
+            }
+        }
+
+        @media (max-width: $breakpoint-mobile) {
         @include hide-top-items(4, 5);
-    }   
+        margin: 10px;
+        width: 70%;
+    }
     }
 
-    @media (width < $breakpoint-mobile) {
-        flex-direction: column-reverse;
-        align-items: center;
-        .top-item {
-          width: 70%;
-        }
+        @media (max-width: $breakpoint-topThree) {
+        flex-wrap:wrap-reverse;
       }
 
+        @media (max-width: $breakpoint-mobile) {
+        flex-direction: column-reverse;
+        align-items: center; 
+      }
 }
 
 .first, .second {
     @include section-styles;
     & .item{
-        @include item-styles;
+    @include item-styles;
     }
 }
 

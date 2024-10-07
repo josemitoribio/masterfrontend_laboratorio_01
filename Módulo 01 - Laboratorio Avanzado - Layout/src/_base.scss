@@ -6,6 +6,8 @@ $text-primary-color:white;
 //Breakpoints media queries
 
 $breakpoint-tablet: 1280px;
+$breakpoint-topThree: 1042px;
+$breakpoint-topTwo: 787px;
 $breakpoint-mobile: 720px;
 
 
@@ -64,5 +66,7 @@ $breakpoint-mobile: 720px;
       transition-duration: 0.5s;
       transform: scale(1.1);
     }
+
+   
 }
 
