@@ -13,11 +13,12 @@ body{
     font-family: sans-serif;
     color:$secondary-color;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
     grid-template-areas:
-    "header header header header"
-    "page page page page"
-    "footer footer footer footer";
+        "header"
+        "page"
+        "footer";
 }
 
 header {
@@ -142,8 +143,10 @@ header {
 }
 
 footer {
-    height: 40px;
-    padding: 14px;
-    grid-area: footer;
-    background-color: $third-color;
+    height: 40px; 
+    padding: 4px;
+    background-color: $third-color; 
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start;
 }
